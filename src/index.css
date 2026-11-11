@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm 8mm 10mm 8mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #1c1917 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  header,
+  nav,
+  aside,
+  footer,
+  .no-print,
+  .print-hidden {
+    display: none !important;
+  }
+
+  /* When printing, hide default body contents except printable target elements */
+  body > * {
+    visibility: hidden !important;
+  }
+
+  #kamch-printable-report,
+  #kamch-printable-result-sheet,
+  #kamch-printable-receipt,
+  #kamch-printable-receipt * {
+    visibility: visible !important;
+  }
+
+  #kamch-printable-receipt {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    overflow: visible !important;
+  }
+
+  #kamch-printable-report table,
+  #kamch-printable-result-sheet table,
+  #kamch-printable-receipt table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    page-break-inside: auto;
+  }
+
+  #kamch-printable-report thead,
+  #kamch-printable-result-sheet thead {
+    display: table-header-group;
+  }
+
+  #kamch-printable-report tfoot,
+  #kamch-printable-result-sheet tfoot {
+    display: table-footer-group;
+  }
+
+  #kamch-printable-report tr,
+  #kamch-printable-result-sheet tr,
+  .print-avoid-break {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  .kamch-signature-grid,
+  .kamch-signature-block {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-top: 1.5rem;
+  }
+}
